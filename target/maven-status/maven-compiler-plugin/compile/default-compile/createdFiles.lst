@@ -1,0 +1,2 @@
+com\jwt\struts\action\LoginAction.class
+com\jwt\struts\forms\LoginForm.class
