@@ -1,57 +1,64 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
-<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- esse link é necessário para colocar o olhinho -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
 <title>Login Example</title>
 </head>
 <body>
-    <html:form action="/login" focus="userName">
-		Username : <html:password styleId="ssn" property="userName" maxlength="4"/>
-        <br>
-		Password : <html:password property="password" />
-        <br>
-        <label>
-        	<bean: />
-        </label>
-        <html:submit value="login" />
-    </html:form>
+	<html:form action="/login" focus="userName" method="POST">
+		Username : <html:password styleId="username" property="userName" />
+		<a class="fa fa-eye" onclick="showInputValue(this)" data-id="username"></a>
+		<br>
+		Password : <html:password styleId="password" property="password" />
+		<a class="fa fa-eye" onclick="showInputValue(this)" data-id="password"></a>
+		<br>
+		<html:submit value="login" />
+		<br>
+		<br>
+		<br>
+		<label class="mask">jether rodrigues <%-- <bean:write class="mask" name="password" property="password" />  --%>
+		</label>
+		<br>
+		<label class="mask">jether rodrigues <%-- <bean:write class="mask" name="password" property="password" />  --%>
+		</label>
+		
+	</html:form>
 </body>
 
 
 <script>
-    var ssn = document.getElementById("ssn");
-    ssn.addEventListener('input', ssnMask, false);
-    var ssnFirstFive = "";
-    var secondHalf = "";
-    var fullSSN = "";
-
-    function ssnMask(){
-        if (ssn.value.length <= 5){
-            ssn.type = 'password';
-        }
-        else{
-            detectChanges();
-            secondHalf = ssn.value.substring(4);
-            ssn.type = 'text';
-            ssn.value = "••••";
-            ssn.value += secondHalf;
-            fullSSN = ssnFirstFive + secondHalf;
-        }
-        console.log(fullSSN);
-    }
-
-    function detectChanges() {
-        for (var i = 0; i < 4; i++){
-            if (ssn.value[i] != "•"){
-                ssnFirstFive = ssnFirstFive.substring(0, i) + ssn.value[i] + ssnFirstFive.substring(i+1);
-            }
-        }
-    }
+	maskInputDetail();
+	
+	function showInputValue(element) {
+		let input = document.getElementById(element.getAttribute("data-id"));
+		
+		if (input.type === 'password') {
+			input.type = 'text';
+			element.classList.remove('fa-eye');
+			element.classList.add('fa-eye-slash');
+		} else {
+			input.type = 'password';
+			element.classList.remove('fa-eye-slash');
+			element.classList.add('fa-eye');
+		}
+	}
+	
+	function maskInputDetail() {
+		Array.from(document.getElementsByClassName('mask')).forEach(label => {
+			let half = Math.round(label.innerText.length / 2);
+			let lastHalfText = label.innerText.slice(label.innerText.length - half);
+			let beginHalfText = '*'.repeat(label.innerText.length - half);
+			label.innerHTML = beginHalfText + lastHalfText;
+		});
+	}
 </script>
 
 </html>

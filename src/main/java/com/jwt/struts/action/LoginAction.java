@@ -12,17 +12,17 @@ import com.jwt.struts.forms.LoginForm;
 
 public class LoginAction extends Action {
 
-	 @Override
-	    public ActionForward execute(ActionMapping mapping, ActionForm form,
-	            HttpServletRequest request, HttpServletResponse response)
-	            throws Exception {
-	        LoginForm loginForm = (LoginForm) form;
-	 
-	        if (loginForm.getUserName() == null || loginForm.getPassword() == null
-	                || !loginForm.getUserName().equalsIgnoreCase("Israel")
-	                || !loginForm.getPassword().equals("123")) {
-	            return mapping.findForward("failure");
-	        } else
-	            return mapping.findForward("success");
-	    }
+	@Override
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		LoginForm loginForm = (LoginForm) form;
+
+		if (loginForm.getUserName() == null || loginForm.getPassword() == null
+				|| !loginForm.getUserName().equalsIgnoreCase("Israel") 
+				|| !loginForm.getPassword().equals("123")) {
+			return mapping.findForward("failure");
+		} else
+			return mapping.findForward("success");
+	}
+	
 }

@@ -29,7 +29,7 @@ public class LoginForm  extends ActionForm {
  
     @Override
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-        this.password = null;
+        new LoginForm();
     }
 
 }

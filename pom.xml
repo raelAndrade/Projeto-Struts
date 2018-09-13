@@ -34,6 +34,6 @@
  
     </dependencies>
     <build>
-        <finalName>StrutsLoginEx</finalName>
+        <finalName>issues</finalName>
     </build>
 </project>
