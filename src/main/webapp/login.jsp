@@ -59,7 +59,12 @@
 		  
 		  	var half = Math.round(label.innerText.length / 2);
 			var lastHalfText = label.innerText.slice(label.innerText.length - half);
-			var beginHalfText = '*'.repeat(label.innerText.length - half);
+			
+			var beginHalfText = '*';
+			for(var j=0; j < (label.innerText.length - half); j ++) {
+				beginHalfText += '*';
+			}
+
 			label.innerHTML = beginHalfText + lastHalfText;
 		}
 
