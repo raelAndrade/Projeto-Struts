@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
+import com.google.gson.Gson;
+
 public class LoginForm  extends ActionForm {
 
 	private static final long serialVersionUID = 1L;
@@ -31,5 +33,9 @@ public class LoginForm  extends ActionForm {
     public void reset(ActionMapping mapping, HttpServletRequest request) {
         new LoginForm();
     }
-
+    
+    @Override
+    public String toString() {
+    	return new Gson().toJson(this);
+    }
 }
