@@ -13,10 +13,12 @@
 </head>
 <body>
 	<html:form styleId="testForm" action="/login" focus="userName" method="POST">
-		Username : <html:password styleId="username" property="userName" />
+		Username : 
+		<html:password styleId="username" property="userName" />
 		<a class="fa fa-eye" onclick="showInputValue(this)" data-id="username"></a>
 		<br>
-		Password : <html:password styleId="password" property="password" />
+		Password : 
+		<html:password styleId="password" property="password" />
 		<a class="fa fa-eye" onclick="showInputValue(this)" data-id="password"></a>
 		<br>
 		<html:submit value="login" />
@@ -52,7 +54,8 @@
 	maskInputDetail();
 
 	function maskInputDetail() {
-		var elements = document.getElementsByClassName("mask");
+		//var elements = document.getElementsByClassName("mask");
+		var elements = document.querySelectorAll('.mask');
 		
 		for (var i = 0; i < elements.length; i++) {
 		  	var label = elements[i];
@@ -61,12 +64,19 @@
 			var lastHalfText = label.innerText.slice(label.innerText.length - half);
 			
 			var beginHalfText = '*';
-			for(var j = 0; j < (label.innerText.length - half); j++) {
+			for(var j=0; j < (label.innerText.length - half); j ++) {
 				beginHalfText += '*';
 			}
 
 			label.innerHTML = beginHalfText + lastHalfText;
 		}
+
+		/* Array.from(document.getElementsByClassName('mask')).forEach(label => {
+			var half = Math.round(label.innerText.length / 2);
+			var lastHalfText = label.innerText.slice(label.innerText.length - half);
+			var beginHalfText = '*'.repeat(label.innerText.length - half);
+			label.innerHTML = beginHalfText + lastHalfText;
+		}); */
 	}
 </script>
 
@@ -75,6 +85,7 @@
 		document.getElementById("testForm").username.value = "";
 		document.getElementById("testForm").password.value = "";
 	};
+
 </script>
 
 </html>
