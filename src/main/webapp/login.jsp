@@ -12,6 +12,18 @@
 <title>Login Example</title>
 </head>
 <body>
+<%
+	HttpSession loggedUserGeneralData = request.getSession();
+	if(loggedUserGeneralData != null) {
+		System.out.println("Before clean");
+		System.out.println(loggedUserGeneralData.getAttribute("loginForm"));
+		
+		loggedUserGeneralData.setAttribute("loginForm", null);
+		
+		System.out.println("After clean");
+		System.out.println(loggedUserGeneralData.getAttribute("loginForm"));
+	}
+%>
 	<html:form styleId="testForm" action="/login" focus="userName" method="POST">
 		Username : 
 		<html:password styleId="username" property="userName" />
@@ -81,10 +93,10 @@
 </script>
 
 <script>
-	window.onload = function() {
+	/* window.onload = function() {
 		document.getElementById("testForm").username.value = "";
 		document.getElementById("testForm").password.value = "";
-	};
+	}; */
 
 </script>
 
