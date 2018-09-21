@@ -57,7 +57,7 @@
 	</html:form>
 </body>
 
-<script>
+<script type="text/javascript">
 	function showInputValue(element) {
 		var input = document.getElementById(element.getAttribute("data-id"));
 		
@@ -77,29 +77,17 @@
 	maskInputDetail();
 
 	function maskInputDetail() {
-		//var elements = document.getElementsByClassName("mask");
 		var elements = document.querySelectorAll('.mask');
-		
 		for (var i = 0; i < elements.length; i++) {
 		  	var label = elements[i];
-		  
 		  	var half = Math.round(label.innerText.length / 2);
 			var lastHalfText = label.innerText.slice(label.innerText.length - half);
-			
 			var beginHalfText = '*';
 			for(var j=0; j < (label.innerText.length - half); j ++) {
 				beginHalfText += '*';
 			}
-
 			label.innerHTML = beginHalfText + lastHalfText;
 		}
-
-		/* Array.from(document.getElementsByClassName('mask')).forEach(label => {
-			var half = Math.round(label.innerText.length / 2);
-			var lastHalfText = label.innerText.slice(label.innerText.length - half);
-			var beginHalfText = '*'.repeat(label.innerText.length - half);
-			label.innerHTML = beginHalfText + lastHalfText;
-		}); */
 	}
 </script>
 
