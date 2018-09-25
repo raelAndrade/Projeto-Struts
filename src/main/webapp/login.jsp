@@ -24,15 +24,18 @@
 </head>
 <body>
 <%
+	String form = "loginForm";
+%>
+<%
 	HttpSession loggedUserGeneralData = request.getSession();
 	if(loggedUserGeneralData != null) {
 		System.out.println("Before clean");
-		System.out.println(loggedUserGeneralData.getAttribute("loginForm"));
+		System.out.println(loggedUserGeneralData.getAttribute(form));
 		
-		loggedUserGeneralData.setAttribute("loginForm", null);
+		loggedUserGeneralData.setAttribute(form, null);
 		
 		System.out.println("After clean");
-		System.out.println(loggedUserGeneralData.getAttribute("loginForm"));
+		System.out.println(loggedUserGeneralData.getAttribute(form));
 	}
 %>
 	<html:form styleId="testForm" action="/login" focus="userName" method="POST">
