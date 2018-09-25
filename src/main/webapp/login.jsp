@@ -23,28 +23,28 @@
 
 </head>
 <body>
-<%
-	String form = "loginForm";
-%>
-<%
-	HttpSession loggedUserGeneralData = request.getSession();
-	if(loggedUserGeneralData != null) {
-		System.out.println("Before clean");
-		System.out.println(loggedUserGeneralData.getAttribute(form));
+<%-- <% --%>
+// 	String form = "loginForm";
+<%-- %> --%>
+<%-- <% --%>
+// 	HttpSession loggedUserGeneralData = request.getSession();
+// 	if(loggedUserGeneralData != null) {
+// 		System.out.println("Before clean");
+// 		System.out.println(loggedUserGeneralData.getAttribute(form));
 		
-		loggedUserGeneralData.setAttribute(form, null);
+// 		loggedUserGeneralData.setAttribute(form, null);
 		
-		System.out.println("After clean");
-		System.out.println(loggedUserGeneralData.getAttribute(form));
-	}
-%>
+// 		System.out.println("After clean");
+// 		System.out.println(loggedUserGeneralData.getAttribute(form));
+// 	}
+<%-- %> --%>
 	<html:form styleId="testForm" action="/login" focus="userName" method="POST">
 		Username : 
 		<html:password styleId="username" property="userName" />
-		<a class="fa fa-eye" onclick="showInputValue(this)" data-id="username"></a>
+		<a class="fa fa-eye" onclick="showInputValue(this)" data-id="username" onfocus="this.value='';"></a>
 		<br>
 		Password : 
-		<html:password styleId="password" property="password" />
+		<html:password styleId="password" property="password" onfocus="this.value='';" />
 		<a class="fa fa-eye" onclick="showInputValue(this)" data-id="password"></a>
 		<br>
 		<html:submit value="login" />
