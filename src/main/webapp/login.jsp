@@ -40,7 +40,7 @@
 %>
 	<html:form styleId="testForm" action="/login" focus="userName" method="POST">
 		Username : 
-		<html:text styleId="username" property="userName" value=""/>
+		<html:text styleId="username" property="userName" value="" />
 		<a class="fa fa-eye" onclick="showInputValue(this)" data-id="username"></a>
 		<br>
 		Password : 
