@@ -8,5 +8,9 @@
 </head>
 <body>
 	<h1>Hello JavaWebTutor</h1>
+	<br>
+	<form action="LogoutServlet" method="post">
+		<input type="submit" value="Logout">
+	</form>
 </body>
 </html>
