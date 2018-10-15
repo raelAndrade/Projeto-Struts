@@ -7,10 +7,6 @@
 <title>Welcome Page</title>
 </head>
 <body>
-	<h1>Hello JavaWebTutor</h1>
-	<br>
-	<form action="LogoutServlet" method="post">
-		<input type="submit" value="Logout">
-	</form>
+	<h1>Hello</h1>
 </body>
 </html>
