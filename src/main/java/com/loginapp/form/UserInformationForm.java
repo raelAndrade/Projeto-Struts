@@ -7,43 +7,43 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
-public class UserInformationForm extends ActionForm{
+public class UserInformationForm extends ActionForm {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String username;
 	private String password;
-	
-	public String getUsername(){
+
+	public String getUsername() {
 		return username;
 	}
-	
-	public void SetUsername(String username){
+
+	public void SetUsername(String username) {
 		this.username = username;
 	}
-	
-	public String getPassword(){
+
+	public String getPassword() {
 		return password;
 	}
-	
-	public void setPassword(String password){
+
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
-	public ActionErrors validate(ActionMapping mapping,
-			HttpServletRequest request){
+	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 		
 		// validate the username property of the form bean
-		if(getUsername() == null || ("".equals(getUsername()))){
+		if (getUsername() == null || ("".equals(getUsername()))) {
 			errors.add("username", new ActionMessage("errors.no.userId"));
 		}
 		// validate the password property of the form bean
-		if(getPassword() == null || ("".equals(getPassword()))){
+		if (getPassword() == null || ("".equals(getPassword()))) {
 			errors.add("password", new ActionMessage("errors.no.passWord"));
 		}
 		
+		System.out.println(errors.toString());
 		return errors;
 	}
 

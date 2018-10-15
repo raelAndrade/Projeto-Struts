@@ -14,7 +14,11 @@
 	</form-beans>
 
 	<action-mappings>
-		<action scope="request" path="/Login" validate="true" type="com.loginapp.action.UserAction" name="userInformationForm" input="/pages/login.jsp" parameter="method">
+		<action scope="request" path="/Login" validate="true" 
+				type="com.loginapp.action.UserAction" 
+				name="userInformationForm" 
+				input="/pages/login.jsp" 
+				parameter="method">
 			<forward name="success" path="/pages/welcome.jsp"/>
 			<forward name="failure" path="/pages/login.jsp" />
 		</action>
