@@ -1,6 +1,6 @@
 package com.loginapp.form;
 
-import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
@@ -30,7 +30,9 @@ public class UserInformationForm extends ActionForm{
 		this.password = password;
 	}
 	
-	public ActionErrors validate(ActionMapping mapping, HttpServlet request){
+	@Override
+	public ActionErrors validate(ActionMapping mapping,
+			HttpServletRequest request){
 		ActionErrors errors = new ActionErrors();
 		
 		// validate the username property of the form bean
@@ -41,6 +43,7 @@ public class UserInformationForm extends ActionForm{
 		if(getPassword() == null || ("".equals(getPassword()))){
 			errors.add("password", new ActionMessage("errors.no.passWord"));
 		}
+		
 		return errors;
 	}
 
